@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="528.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="528.0">
+         <content>
+            <AnchorPane fx:id="b" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="528.0" style="-fx-background-color: black; -fx-border-radius: 25;">
+               <children>
+                  <TextField fx:id="nameEntry" alignment="CENTER" layoutX="26.0" layoutY="161.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" promptText="enter a name" />
+                  <TextField fx:id="surnameEntry" alignment="CENTER" layoutX="26.0" layoutY="198.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="26.0" promptText="enter a surname" />
+                  <TextField fx:id="emailEntry" alignment="CENTER" layoutX="26.0" layoutY="237.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="26.0" promptText="enter an email" />
+                  <Button fx:id="saveButton" layoutX="316.0" layoutY="632.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="131.0" text="generate cv" />
+                  <Label layoutX="25.0" layoutY="306.0" style="-fx-background-color: WHITE;" text="WORK EXPERIENCE">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="496.0" style="-fx-background-color: WHITE;" text="IMPORTANT SKILLS">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="company1" layoutX="25.0" layoutY="366.0" prefHeight="26.0" prefWidth="135.0" promptText="company name" />
+                  <TextField fx:id="workDone1" layoutX="172.0" layoutY="366.0" prefHeight="26.0" prefWidth="273.0" promptText="work done" />
+                  <TextField fx:id="company2" layoutX="25.0" layoutY="403.0" prefHeight="26.0" prefWidth="136.0" promptText="company name" />
+                  <TextField fx:id="workDone2" layoutX="172.0" layoutY="403.0" prefHeight="26.0" prefWidth="273.0" promptText="work done" />
+                  <TextField fx:id="skill2" layoutX="25.0" layoutY="579.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="203.0" promptText="technical skills" />
+                  <TextField fx:id="skill4" layoutX="237.0" layoutY="579.0" prefHeight="26.0" prefWidth="206.0" promptText="interests (additional)" />
+                  <TextField fx:id="skill1" layoutX="25.0" layoutY="539.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="204.0" promptText="personal skills" />
+                  <TextField fx:id="skill3" layoutX="237.0" layoutY="539.0" prefHeight="26.0" prefWidth="210.0" promptText="languages" />
+                  <Label layoutX="26.0" layoutY="113.0" style="-fx-background-color: white;" text="PERSONAL INFORMATION">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="323.0" layoutY="113.0" style="-fx-background-color: white;" text="PHOTO">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </padding>
+                  </Label>
+                  <Button fx:id="chooseFileButton" layoutX="308.0" layoutY="161.0" mnemonicParsing="false" onAction="#chooseFile" text="choose file" />
+                  <Button layoutX="237.0" layoutY="632.0" mnemonicParsing="false" onAction="#clear" prefHeight="26.0" prefWidth="62.0" text="clear" />
+                  <ImageView fx:id="imageView" fitHeight="91.0" fitWidth="136.0" layoutX="289.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true" />
+                  <TextField fx:id="imagePath" layoutX="287.0" layoutY="198.0" prefHeight="26.0" prefWidth="131.0" />
+                  <TextField fx:id="searhField" layoutX="34.0" layoutY="35.0" prefHeight="26.0" prefWidth="288.0" promptText="enter name and surname" />
+                  <Button layoutX="340.0" layoutY="35.0" mnemonicParsing="false" onAction="#search" text="search for cv" />
+                  <TextField fx:id="company3" layoutX="25.0" layoutY="439.0" prefHeight="26.0" prefWidth="134.0" promptText="company name" />
+                  <TextField fx:id="workDone3" layoutX="172.0" layoutY="439.0" prefHeight="26.0" prefWidth="269.0" promptText="work done" />
+                  <Label layoutX="25.0" layoutY="341.0" text="Choose 3 most important!" />
+               </children>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

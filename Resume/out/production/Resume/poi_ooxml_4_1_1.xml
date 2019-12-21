@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="poi-ooxml-4.1.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/poi-4.1.1/poi-ooxml-4.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/poi-4.1.1/poi-ooxml-schemas-4.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/poi-4.1.1/poi-scratchpad-4.1.1.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/poi-4.1.1/ooxml-lib" />
+      <root url="jar://$USER_HOME$/Desktop/poi-4.1.1/poi-4.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/poi-4.1.1/poi-examples-4.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/poi-4.1.1/poi-excelant-4.1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$USER_HOME$/Desktop/poi-4.1.1/ooxml-lib" recursive="false" />
+  </library>
+</component>
