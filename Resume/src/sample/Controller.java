@@ -318,7 +318,7 @@ public class Controller extends SqlCon {
 
                 st.close();
             } catch (Exception e) {
-                System.out.println("olo");
+                System.out.println("wrong");
             }
             return false;
 
