@@ -92,28 +92,28 @@ public class Controller extends SqlCon {
                 String imageP = imagePath.getText();
                 String companyName3 = company3.getText();
                 String work3 = workDone3.getText();
-                if(validateString(name) && validateString(surname) && !name.equals("") && !surname.equals("")){
-                    mySql.makeJDBCConnection();
-                    mySql.addDataToDB(name,surname,email,companyName1,work1,companyName2,work2,skill11,skill22,skill33,skill44,imageP,companyName3,work3);
-                   //mySql.getDataFromDB();
+         if (validateString(name) && validateString(surname) && !name.equals("") && !surname.equals("")) {
+                if (!noRepeat(name, surname)) {
+                    makeJDBCConnection();
+                    addDataToDB(name, surname, email, companyName1, work1, companyName2, work2, skill11, skill22, skill33, skill44, imageP, companyName3, work3);
+                 }
+                docx.creatDOCX(name, surname, email, companyName1, work1, companyName2, work2, skill11, skill22, skill33, skill44, imageP, companyName3, work3);
+                b.setAlertType(Alert.AlertType.INFORMATION);
+                b.setHeaderText("Please check your desktop. Resume for " + name + " " + surname + " was successfully written. ");
+                b.show();
+         }
 
-                    docx.creatDOCX(name,surname,email,companyName1,work1,companyName2,work2,skill11,skill22,skill33,skill44,imageP,companyName3,work3);
-                    b.setAlertType(Alert.AlertType.INFORMATION);
-                    b.setHeaderText("Please check your desktop. Resume for "+ name +" "+ surname+ " was succesfully written. ");
-
-                    b.show();
-                    }
-                else{
-                        a.setAlertType(Alert.AlertType.INFORMATION);
-                        a.setTitle("ERROR");
-                        // set content text
-                        a.setHeaderText("Invalid input");
-                        // show the dialog
-                        a.show();
-
-                       nameEntry.setOnMouseClicked(e->nameEntry.selectAll());
-                       surnameEntry.setOnMouseClicked(e->surnameEntry.selectAll());}
-                }
+         else{
+            a.setAlertType(Alert.AlertType.INFORMATION);
+            a.setTitle("ERROR");
+            // set content text
+            a.setHeaderText("Invalid input");
+            // show the dialog
+            a.show();
+            nameEntry.setOnMouseClicked(e -> nameEntry.selectAll());
+            surnameEntry.setOnMouseClicked(e -> surnameEntry.selectAll());
+    }
+}
 
 
 
@@ -284,6 +284,51 @@ public class Controller extends SqlCon {
         company3.clear();
         workDone3.clear();
     }
+    
+    public boolean noRepeat(String name, String surName){
+
+            try {
+                name = name.toLowerCase();
+                surName = surName.toLowerCase();
+                //connect db
+                String myDriver = "com.mysql.jdbc.Driver";
+                String myUrl = "jdbc:mysql://localhost:3306/resume";
+                Class.forName(myDriver);
+                Connection conn = DriverManager.getConnection(myUrl, "test", "test");
+                String query = "" +
+                        "SELECT * FROM person where name ='" + name + "'" + " and surname ='" + surName + "'";
+                System.out.println(query);
+                // create the java statement
+                Statement st = conn.createStatement();
+
+                // execute the query, and get a java resultset
+                ResultSet rs = st.executeQuery(query);
+                while (rs.next()) {
+                    String nameDB = rs.getString("name");
+                    nameDB = nameDB.toLowerCase();
+                    System.out.println("db found  " + name);
+                    String surNameDB = rs.getString("surname").toLowerCase();
+                    System.out.println("db found  " + surName);
+                    if (name.equals(nameDB) && surName.equals(surNameDB)) {
+                        System.out.println("same, will be not added");
+                       return true;
+                    }
+
+                }
+
+                st.close();
+            } catch (Exception e) {
+                System.out.println("olo");
+            }
+            return false;
+
+
+
+
+
+            }
+
+
 
 
 }
